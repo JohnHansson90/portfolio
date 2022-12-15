@@ -14,7 +14,12 @@ const Navbar = (props) => {
   return (
     <div className="fixed w-full h-20 shadow-xl z-[100]">
       <div className="flex justify-between items-center w-full h-20 px-2 2xl:px-16">
-        <Image src="/../public/favicon.ico" alt="/" width="50" height="70" />
+        <Image
+          src="/../public/assets/jh_logo.jpeg"
+          alt="/"
+          width="60"
+          height="80"
+        />
         <div className="">
           <ul className="hidden md:flex pr-5 uppercase">
             <Link href="/">
@@ -42,18 +47,23 @@ const Navbar = (props) => {
       </div>
 
       <div
-        className={menu ? "fixed left-0 top-0 w-full h-screen bg-black/70" : ""}
-      >
-        <div className={
+        className={
           menu
-            ? "fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-500"
-            : "fixed left-[-100%] top-0 p-10 ease-in duration-500"
+            ? "md:hidden fixed left-0 top-0 w-full h-screen bg-black/70"
+            : "bg-[#171e23]"
         }
+      >
+        <div
+          className={
+            menu
+              ? "fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-500"
+              : "fixed left-[-100%] top-0 p-10 ease-in duration-500"
+          }
         >
           <div>
             <div className="flex w-full items-center justify-between ">
               <Image
-                src="/../public/favicon.ico"
+                src="/../public/assets/jh_logo.jpeg"
                 alt="/"
                 width="40"
                 height="50"
