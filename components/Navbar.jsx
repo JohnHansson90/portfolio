@@ -13,30 +13,42 @@ const Navbar = (props) => {
     setMenu(!menu);
   };
   return (
-    <div className="fixed w-full h-20 shadow-xl z-[100]">
+    <div className="fixed w-full h-20 z-[100]">
       <div className="flex justify-between items-center w-full h-20 px-2 2xl:px-16">
-        <Image
-          src="/../public/assets/jh_logo.jpeg"
-          alt="/"
-          width="60"
-          height="80"
-        />
+        <div className="z-10">
+          <Image
+            src="/../public/assets/jh_logo.jpeg"
+            alt="/"
+            width="60"
+            height="80"
+          />
+        </div>
         <div className="">
           <ul className="hidden md:flex pr-5 uppercase">
             <Link href="/">
-              <li className="ml-10 text-sm  hover:border-b">Home</li>
+              <li className="ml-10 text-sm border-b py-1 hover:border-none hover:font-bold hover:scale-150 ease-in duration-200">
+                Home
+              </li>
             </Link>
             <Link href="/">
-              <li className="ml-10 text-sm  hover:border-b">About</li>
+              <li className="ml-10 text-sm border-b py-1 hover:border-none hover:font-bold hover:scale-150 ease-in duration-200">
+                About
+              </li>
             </Link>
             <Link href="/">
-              <li className="ml-10 text-sm  hover:border-b">Skills</li>
+              <li className="ml-10 text-sm border-b py-1 hover:border-none hover:font-bold hover:scale-150 ease-in duration-200">
+                Tech Stack
+              </li>
             </Link>
             <Link href="/">
-              <li className="ml-10 text-sm  hover:border-b">Projects</li>
+              <li className="ml-10 text-sm border-b py-1 hover:border-none hover:font-bold hover:scale-150 ease-in duration-200">
+                Projects
+              </li>
             </Link>
             <Link href="/">
-              <li className="ml-10 text-sm  hover:border-b">Contact</li>
+              <li className="ml-10 text-sm border-b py-1 hover:border-none hover:font-bold hover:scale-150 ease-in duration-200">
+                Contact
+              </li>
             </Link>
           </ul>
           <div onClick={handleMenu} className="md:hidden pr-5">
@@ -55,25 +67,22 @@ const Navbar = (props) => {
         <div
           className={
             menu
-              ? "fixed right-0 top-0  sm:w-[60%] md:w-[45%] h-screen p-5 ease-in duration-500"
-              : "fixed right-[-100%] top-0 p-5 ease-in duration-500"
+              ? "fixed right-0 bottom-1 w-full h-screen p-5 ease-out duration-1000"
+              : "fixed right-[-100%] bottom-1 w-full h-screen p-5 ease-in duration-500"
           }
         >
           <div>
-            <div className="flex w-full items-center justify-between ">
+            <div className="w-full  ">
               <div
-                onClick={handleMenu}
-                className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-125 ease-in duration-200"
+                className="flex justify-end p-3 cursor-pointer"
               >
-                <AiOutlineClose />
+                <AiOutlineClose size={25}  onClick={handleMenu} />
               </div>
             </div>
-            <div className="border-b border-gray-300 my-6">
-              <p className="w-[85%] md:w-[90%] py-4">
-                Let's build something awesome together
-              </p>
+            <div className="border-b border-gray-300 mt-10 mb-24 text-center">
+              <p className="w-[100%] pt-8 pb-10">Explore and perhaps enjoy.</p>
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col text-center">
               <ul className="uppercase">
                 <Link href="/">
                   <li className="my-4 py-2 text-sm ">Home</li>
@@ -82,7 +91,7 @@ const Navbar = (props) => {
                   <li className="my-4 py-2 text-sm ">About</li>
                 </Link>
                 <Link href="/">
-                  <li className="my-4 py-2 text-sm ">Skills</li>
+                  <li className="my-4 py-2 text-sm ">Tech Stack</li>
                 </Link>
                 <Link href="/">
                   <li className="my-4 py-2 text-sm ">Projects</li>
@@ -91,21 +100,21 @@ const Navbar = (props) => {
                   <li className="my-4 py-2 text-sm ">Contact</li>
                 </Link>
               </ul>
-              <div className="pt-40">
-                <p className="uppercase tracking-widest text-[#30bb30]">
+              <div className="flex flex-col items-center pt-[3rem] gap-12">
+                <p className="uppercase tracking-widest pb-6 text-[#ffffff]">
                   Let's connect
                 </p>
-                <div className="flex items-center justify-between my-4 w-full sm:w-[80%]">
-                  <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-125 ease-in duration-200">
+                <div className="flex items-center justify-evenly my-4 w-full  ">
+                  <div className="rounded-full border-2 border-gray-400 p-3 cursor-pointer hover:scale-125 ease-in duration-200">
                     <FaLinkedinIn />
                   </div>
-                  <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-125 ease-in duration-200">
+                  <div className="rounded-full border-2  border-gray-400 p-3 cursor-pointer hover:scale-125 ease-in duration-200">
                     <FaGithub />
                   </div>
-                  <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-125 ease-in duration-200">
+                  <div className="rounded-full border-2  border-gray-400 p-3 cursor-pointer hover:scale-125 ease-in duration-200">
                     <AiOutlineMail />
                   </div>
-                  <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-125 ease-in duration-200">
+                  <div className="rounded-full border-2  border-gray-400 p-3 cursor-pointer hover:scale-125 ease-in duration-200">
                     <BsFillPersonLinesFill />
                   </div>
                 </div>
