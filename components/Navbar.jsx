@@ -13,7 +13,7 @@ const Navbar = (props) => {
     setMenu(!menu);
   };
   return (
-    <div className="fixed w-full h-20 z-[100]">
+    <div className="fixed w-full h-20 z-[100] ">
       <div className="flex justify-between items-center w-full h-20 px-2 2xl:px-16">
         <div className="z-10">
           <Image
@@ -72,15 +72,13 @@ const Navbar = (props) => {
           }
         >
           <div>
-            <div className="w-full  ">
-              <div
-                className="flex justify-end p-3 cursor-pointer"
-              >
-                <AiOutlineClose size={25}  onClick={handleMenu} />
+            <div className="w-full">
+              <div className="flex justify-end p-3 cursor-pointer">
+                <AiOutlineClose size={25} onClick={handleMenu} />
               </div>
             </div>
             <div className="border-b border-gray-300 mt-10 mb-24 text-center">
-              <p className="w-[100%] pt-8 pb-10">Explore and perhaps enjoy.</p>
+              <p className="w-[100%] pt-8 pb-10">Explore and enjoy.</p>
             </div>
             <div className="flex flex-col text-center">
               <ul className="uppercase">
@@ -100,11 +98,11 @@ const Navbar = (props) => {
                   <li className="my-4 py-2 text-sm ">Contact</li>
                 </Link>
               </ul>
-              <div className="flex flex-col items-center pt-[3rem] gap-12">
-                <p className="uppercase tracking-widest pb-6 text-[#ffffff]">
-                  Let's connect
+              <div className="flex flex-col items-center pt-[6rem] gap-8">
+                <p className="uppercase tracking-widest text-[#ffffff]">
+                  Meet me on
                 </p>
-                <div className="flex items-center justify-evenly my-4 w-full  ">
+                <div className="flex items-center justify-evenly mb-4 w-full  ">
                   <div className="rounded-full border-2 border-gray-400 p-3 cursor-pointer hover:scale-125 ease-in duration-200">
                     <FaLinkedinIn />
                   </div>
@@ -113,9 +111,6 @@ const Navbar = (props) => {
                   </div>
                   <div className="rounded-full border-2  border-gray-400 p-3 cursor-pointer hover:scale-125 ease-in duration-200">
                     <AiOutlineMail />
-                  </div>
-                  <div className="rounded-full border-2  border-gray-400 p-3 cursor-pointer hover:scale-125 ease-in duration-200">
-                    <BsFillPersonLinesFill />
                   </div>
                 </div>
               </div>
