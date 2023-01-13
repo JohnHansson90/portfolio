@@ -3,12 +3,12 @@ import Image from "next/image";
 
 const About = () => {
   return (
-    <div className="w-full md:h-screen p-2 flex items-center justify-center flex-col">
-      <h1>ABOUT</h1>
+    <div className="w-full md:h-screen p-2 flex items-center justify-center flex-col bg-gradient-to-t from-black ">
+      {/* <h1 className="uppercase tracking-widest ">about</h1> */}
 
-      <div className="max-w-[1240px] md:max-w-[100%] mx-10 md:grid grid-cols-3 gap-8">
-        <div className="col-span-2">
-          <p className=" uppercase tracking-widest font-bold">
+      <div className="max-w-[1240px] mx-10 md:grid grid-cols-3 gap-8">
+        <div className="col-span-2 ">
+          <p className="uppercase font-bold tracking-widest">
             Cool, i've got you
             <span className="text-[#49ff49]"> intrigued </span>
           </p>
@@ -32,7 +32,7 @@ const About = () => {
             developer and having fun creating and delivering web applications.
           </p>
         </div>
-        <div className="w-fit h-auto m-auto shadow-xl rounded-full bg-[#49ff49] flex items-center justify-center p-2 hover:scale-110 ease-in duration-300">
+        <div className="w-fit h-auto m-auto shadow-xl rounded-full bg-[#49ff49] flex items-center justify-center p-2 hover:scale-110 ease-in duration-300 ">
           <Image
             src="/../public/assets/ProfilPic.png"
             alt="Profile_pic"

@@ -73,7 +73,7 @@ const Navbar = (props) => {
         >
           <div>
             <div className="w-full">
-              <div className="flex justify-end p-3 cursor-pointer">
+              <div className="flex justify-end p-3 pr-2 cursor-pointer">
                 <AiOutlineClose size={25} onClick={handleMenu} />
               </div>
             </div>

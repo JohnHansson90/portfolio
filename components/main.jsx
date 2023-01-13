@@ -6,8 +6,8 @@ import { BsFillPersonLinesFill } from "react-icons/Bs";
 
 function Main() {
   return (
-    <div className="w-full h-screen text-center">
-      <div className="max-w-[1240px] w-full h-full mx-auto p-2 flex flex-col justify-center items-center">
+    <div className="w-full h-screen text-center flex flex-col justify-center items-center bg-gradient-to-b from-black">
+      <div className="max-w-[1240px] w-full h-full p-2 flex flex-col justify-center items-center">
         <div>
           <h1 className="m-auto text-[1.7rem] sm:pb-2 sm:text-6xl">
             Hi, I'm <span className="text-[#49ff49]">John</span>
