@@ -45,11 +45,6 @@ const Navbar = (props) => {
                 Projects
               </li>
             </Link>
-            <Link href="/">
-              <li className="ml-10 text-sm border-b py-1 hover:border-none hover:font-bold hover:scale-150 ease-in duration-200">
-                Contact
-              </li>
-            </Link>
           </ul>
           <div onClick={handleMenu} className="md:hidden pr-5">
             <AiOutlineMenu size={25} />
@@ -93,9 +88,6 @@ const Navbar = (props) => {
                 </Link>
                 <Link href="/">
                   <li className="my-4 py-2 text-sm ">Projects</li>
-                </Link>
-                <Link href="/">
-                  <li className="my-4 py-2 text-sm ">Contact</li>
                 </Link>
               </ul>
               <div className="flex flex-col items-center pt-[6rem] gap-8">

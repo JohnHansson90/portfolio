@@ -21,17 +21,19 @@ function Main() {
             environments is something I strive for and having fun creating
             fantastic web applications.
           </p>
-          <h3 className="pt-4 sm:pt-10">
-            Feel free to explore
-          </h3>
+          <h3 className="pt-4 sm:pt-10">Feel free to explore</h3>
         </div>
 
         <div className="flex items-center justify-center w-full max-w-[380px] gap-8 absolute bottom-40 left-100 sm:bottom-[13rem]">
           <div className="rounded-full border-2 border-gray-400 p-3 cursor-pointer hover:scale-125 ease-in duration-200">
-            <FaLinkedinIn />
+            <Link href="/www.linkedin.com/in/johnhansson90">
+              <FaLinkedinIn />
+            </Link>
           </div>
           <div className="rounded-full border-2  border-gray-400 p-3 cursor-pointer hover:scale-125 ease-in duration-200">
-            <FaGithub />
+            <Link href="www.github.com/JohnHansson90">
+              <FaGithub />
+            </Link>
           </div>
           <div className="rounded-full border-2  border-gray-400 p-3 cursor-pointer hover:scale-125 ease-in duration-200">
             <AiOutlineMail />
