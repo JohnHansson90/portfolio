@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from "react-icons/ai";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { BsFillPersonLinesFill } from "react-icons/Bs";
@@ -9,11 +9,34 @@ import { BsFillPersonLinesFill } from "react-icons/Bs";
 
 const Navbar = (props) => {
   const [menu, setMenu] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState(null);
+
   const handleMenu = () => {
     setMenu(!menu);
   };
+
+  useEffect(() => {
+    let lastScrollY = window.pageYOffset;
+
+    const updateScrollDirection = () => {
+      const scrollY = window.pageYOffset;
+      const direction = scrollY > lastScrollY ? "down" : "up";
+      if (
+        direction !== scrollDirection &&
+        (scrollY - lastScrollY > 1 || scrollY - lastScrollY < 0)
+      ) {
+        setScrollDirection(direction);
+      }
+      lastScrollY = scrollY > 0 ? scrollY : 0;
+    };
+    window.addEventListener("scroll", updateScrollDirection); // add event listener
+    return () => {
+      window.removeEventListener("scroll", updateScrollDirection); // clean up
+    };
+  }, [scrollDirection]);
+
   return (
-    <div className="fixed w-full h-20 z-[100] ">
+    <div className="fixed w-full h-20 z-[100]">
       <div className="flex justify-between items-center w-full h-20 px-2 2xl:px-16">
         <div className="z-10">
           <Image
@@ -23,7 +46,7 @@ const Navbar = (props) => {
             height="80"
           />
         </div>
-        <div className="">
+        <div className={scrollDirection === "down" ? "hidden" : "up"}>
           <ul className="hidden md:flex pr-5 uppercase">
             <Link href="/">
               <li className="ml-10 text-sm border-b py-1 hover:border-none hover:font-bold hover:scale-150 ease-in duration-200">
