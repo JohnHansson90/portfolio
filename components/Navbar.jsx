@@ -48,22 +48,22 @@ const Navbar = (props) => {
         </div>
         <div className={scrollDirection === "down" ? "hidden" : "up"}>
           <ul className="hidden md:flex pr-5 uppercase">
-            <Link href="/">
+            <Link href="/#home ">
               <li className="ml-10 text-sm border-b py-1 hover:border-none hover:font-bold hover:scale-150 ease-in duration-200">
                 Home
               </li>
             </Link>
-            <Link href="/">
+            <Link href="/#about">
               <li className="ml-10 text-sm border-b py-1 hover:border-none hover:font-bold hover:scale-150 ease-in duration-200">
                 About
               </li>
             </Link>
-            <Link href="/">
+            <Link href="/#tech">
               <li className="ml-10 text-sm border-b py-1 hover:border-none hover:font-bold hover:scale-150 ease-in duration-200">
                 Tech Stack
               </li>
             </Link>
-            <Link href="/">
+            <Link href="/#projects">
               <li className="ml-10 text-sm border-b py-1 hover:border-none hover:font-bold hover:scale-150 ease-in duration-200">
                 Projects
               </li>

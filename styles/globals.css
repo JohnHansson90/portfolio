@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 @layer base {
   body {
     @apply bg-zinc-900 text-[#ffffff] tracking-wide;
@@ -17,7 +21,7 @@
   }
 
   h1 {
-    @apply text-4xl sm:text-5xl md:text-6xl ;
+    @apply text-4xl sm:text-5xl md:text-6xl;
   }
 
   h2 {
@@ -25,7 +29,7 @@
   }
 
   p {
-    @apply text-slate-300
+    @apply text-slate-300;
   }
 
   li {

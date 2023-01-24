@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Tech = () => {
   return (
-    <div className="w-full lg:h-screen flex flex-col justify-center items-center p-2 bg-gradient-to-b from-black">
+    <div id="tech" className="w-full lg:h-screen flex flex-col justify-center items-center p-2 bg-gradient-to-b from-black">
       <div className="max-w-[1240px] flex flex-col justify-center gap-8 h-full items-center">
         <h1 className="uppercase pt-32">tech stack</h1>
         <p className="tracking-wide">My Current tech that i'm focusing on</p>

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const About = () => {
   return (
-    <div className="w-full md:h-screen p-2 flex items-center justify-center flex-col bg-gradient-to-t from-black ">
+    <div id="about" className="w-full md:h-screen p-2 flex items-center justify-center flex-col bg-gradient-to-t from-black ">
       {/* <h1 className="uppercase tracking-widest ">about</h1> */}
 
       <div className="max-w-[1240px] mx-10 md:grid grid-cols-3 gap-8">
