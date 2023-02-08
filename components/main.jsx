@@ -26,14 +26,14 @@ function Main() {
 
         <div className="flex items-center justify-center w-full max-w-[380px] gap-8 absolute bottom-40 left-100 sm:bottom-[13rem]">
           <div className="rounded-full border-2 border-gray-400 p-3 cursor-pointer hover:scale-125 ease-in duration-200">
-            <Link href="/www.linkedin.com/in/johnhansson90">
+            <a  href="https://www.linkedin.com/in/johnhansson90" target="_blank">
               <FaLinkedinIn />
-            </Link>
+            </a>
           </div>
           <div className="rounded-full border-2  border-gray-400 p-3 cursor-pointer hover:scale-125 ease-in duration-200">
-            <Link href="www.github.com/JohnHansson90">
+            <a href="https://www.github.com/JohnHansson90" target="_blank">
               <FaGithub />
-            </Link>
+            </a>
           </div>
           <div className="rounded-full border-2  border-gray-400 p-3 cursor-pointer hover:scale-125 ease-in duration-200">
             <AiOutlineMail />

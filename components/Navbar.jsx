@@ -5,8 +5,6 @@ import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from "react-icons/ai";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { BsFillPersonLinesFill } from "react-icons/Bs";
 
-// rafce shortcut for arrowfunction
-
 const Navbar = (props) => {
   const [menu, setMenu] = useState(false);
   const [scrollDirection, setScrollDirection] = useState(null);
@@ -27,7 +25,7 @@ const Navbar = (props) => {
       ) {
         setScrollDirection(direction);
       }
-      lastScrollY = scrollY > 0 ? scrollY : 0;
+      lastScrollY = scrollY > 1 ? scrollY : 0;
     };
     window.addEventListener("scroll", updateScrollDirection); // add event listener
     return () => {
@@ -37,40 +35,49 @@ const Navbar = (props) => {
 
   return (
     <div className="fixed w-full h-20 z-[100]">
-      <div className="flex justify-between items-center w-full h-20 px-2 2xl:px-16">
-        <div className="z-10">
-          <Image
-            src="/../public/assets/jh_logo.jpeg"
-            alt="/"
-            width="60"
-            height="80"
-          />
-        </div>
-        <div className={scrollDirection === "down" ? "hidden" : "up"}>
-          <ul className="hidden md:flex pr-5 uppercase">
-            <Link href="/#home ">
-              <li className="ml-10 text-sm border-b py-1 hover:border-none hover:font-bold hover:scale-150 ease-in duration-200">
-                Home
-              </li>
-            </Link>
-            <Link href="/#about">
-              <li className="ml-10 text-sm border-b py-1 hover:border-none hover:font-bold hover:scale-150 ease-in duration-200">
-                About
-              </li>
-            </Link>
-            <Link href="/#tech">
-              <li className="ml-10 text-sm border-b py-1 hover:border-none hover:font-bold hover:scale-150 ease-in duration-200">
-                Tech Stack
-              </li>
-            </Link>
-            <Link href="/#projects">
-              <li className="ml-10 text-sm border-b py-1 hover:border-none hover:font-bold hover:scale-150 ease-in duration-200">
-                Projects
-              </li>
-            </Link>
-          </ul>
-          <div onClick={handleMenu} className="md:hidden pr-5">
-            <AiOutlineMenu size={25} />
+      <div className="flex flex-col-reverse items-center">
+        <hr
+          className={
+            scrollDirection === "down"
+              ? "w-[80%] border-b-[.5] border-white border-opacity-[.8]"
+              : "up"
+          }
+        />
+        <div className="flex justify-between items-center w-full h-20 px-2 2xl:px-16">
+          <div className="z-10">
+            <Image
+              src="/../public/assets/jh_logo.jpeg"
+              alt="/"
+              width="60"
+              height="80"
+            />
+          </div>
+          <div className={scrollDirection === "down" ? "opacity-[.2]" : "up"}>
+            <ul className="hidden md:flex pr-5 uppercase">
+              <Link href="#home ">
+                <li className="ml-10 text-sm border-b py-1 hover:border-none hover:font-bold hover:scale-150 ease-in duration-200">
+                  Home
+                </li>
+              </Link>
+              <Link href="#about">
+                <li className="ml-10 text-sm border-b py-1 hover:border-none hover:font-bold hover:scale-150 ease-in duration-200">
+                  About
+                </li>
+              </Link>
+              <Link href="#tech">
+                <li className="ml-10 text-sm border-b py-1 hover:border-none hover:font-bold hover:scale-150 ease-in duration-200">
+                  Tech Stack
+                </li>
+              </Link>
+              <Link href="#projects">
+                <li className="ml-10 text-sm border-b py-1 hover:border-none hover:font-bold hover:scale-150 ease-in duration-200">
+                  Projects
+                </li>
+              </Link>
+            </ul>
+            <div onClick={handleMenu} className="md:hidden pr-5">
+              <AiOutlineMenu size={25} />
+            </div>
           </div>
         </div>
       </div>
@@ -79,14 +86,14 @@ const Navbar = (props) => {
         className={
           menu
             ? "md:hidden fixed right-0 top-0 w-full h-screen bg-black"
-            : "bg-[#000000]"
+            : ""
         }
       >
         <div
           className={
             menu
               ? "fixed right-0 bottom-1 w-full h-screen p-5 ease-out duration-1000"
-              : "fixed right-[-100%] bottom-1 w-full h-screen p-5 ease-in duration-500"
+              : "fixed right-[-100%] bottom-1 w-full h-screen p-5 ease-in-out duration-500"
           }
         >
           <div>
@@ -100,16 +107,16 @@ const Navbar = (props) => {
             </div>
             <div className="flex flex-col text-center">
               <ul className="uppercase">
-                <Link href="/">
+                <Link href="#home">
                   <li className="my-4 py-2 text-sm ">Home</li>
                 </Link>
-                <Link href="/">
+                <Link href="#about">
                   <li className="my-4 py-2 text-sm ">About</li>
                 </Link>
-                <Link href="/">
+                <Link href="#tech">
                   <li className="my-4 py-2 text-sm ">Tech Stack</li>
                 </Link>
-                <Link href="/">
+                <Link href="#projects">
                   <li className="my-4 py-2 text-sm ">Projects</li>
                 </Link>
               </ul>
@@ -117,7 +124,7 @@ const Navbar = (props) => {
                 <p className="uppercase tracking-widest text-[#ffffff]">
                   Meet me on
                 </p>
-                <div className="flex items-center justify-evenly mb-4 w-full  ">
+                <div className="flex items-center justify-evenly mb-4 w-full">
                   <div className="rounded-full border-2 border-gray-400 p-3 cursor-pointer hover:scale-125 ease-in duration-200">
                     <FaLinkedinIn />
                   </div>
