@@ -6,9 +6,14 @@ import ProjectItems from "./ProjectItems";
 
 const Projects = () => {
   return (
-    <div id="projects" className="w-full lg:h-screen flex flex-col justify-center items-center p-2 bg-gradient-to-t from-black">
+    <div
+      id="projects"
+      className="w-full lg:h-screen flex flex-col justify-center items-center p-2 bg-gradient-to-t from-black"
+    >
       <div className="max-w-[1240px] h-screen flex flex-col justify-center items-center ">
-        <h1 className="uppercase pt-20 pb-10">creativity <span className="text-[#49ff49]">time</span></h1>
+        <h1 className="uppercase pt-20 pb-10">
+          creativity <span className="text-[#49ff49]">time</span>
+        </h1>
         <div className="grid md:grid-cols-2 h-screen w-full place-items-center">
           <ProjectItems
             title="emma's portfolio"
