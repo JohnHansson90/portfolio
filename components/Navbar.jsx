@@ -46,7 +46,7 @@ const Navbar = (props) => {
         <div className="flex justify-between items-center w-full h-20 px-2 2xl:px-16">
           <div className="z-10">
             <Image
-              src="/../public/assets/jh_logo.jpeg"
+              src="/jh_logo.jpeg"
               alt="/"
               width="60"
               height="80"

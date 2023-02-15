@@ -35,7 +35,7 @@ const About = () => {
         </div>
         <div className="w-fit h-auto m-auto shadow-xl rounded-full bg-[#49ff49] flex items-center justify-center p-2 hover:scale-110 ease-in duration-300 ">
           <Image
-            src="/../public/assets/ProfilPic.png"
+            src="/ProfilPic.png"
             alt="Profile_pic"
             width="200"
             height="300"

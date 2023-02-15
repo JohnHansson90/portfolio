@@ -3,17 +3,20 @@ import Image from "next/image";
 
 const Tech = () => {
   return (
-    <div id="tech" className="w-full lg:h-screen flex flex-col justify-center items-center p-2 bg-gradient-to-b from-black">
+    <div
+      id="tech"
+      className="w-full lg:h-screen flex flex-col justify-center items-center p-2 bg-gradient-to-b from-black"
+    >
       <div className="max-w-[1240px] flex flex-col justify-center gap-8 h-full items-center">
         <h1 className="uppercase pt-32">tech stack</h1>
         <p className="tracking-wide">My Current tech that i'm focusing on</p>
         <div className="grid pt-20 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
-        <div className="p-6 rounded-xl hover:scale-110 ease-in duration-300">
+          <div className="p-6 rounded-xl hover:scale-110 ease-in duration-300">
             <div className="flex flex-col justify-center items-center">
               <div className="m-auto relative group ">
                 <Image
                   className="group-hover:opacity-10"
-                  src="/../public/assets/skills/javascript.png"
+                  src="/assets/skills/javascript.png"
                   width="64"
                   height="64"
                   alt="javascript_logo"
@@ -33,7 +36,7 @@ const Tech = () => {
               <div className="m-auto relative group ">
                 <Image
                   className="group-hover:opacity-10"
-                  src="/../public/assets/skills/css.png"
+                  src="/assets/skills/css.png"
                   width="64"
                   height="64"
                   alt="css_logo"
@@ -53,7 +56,7 @@ const Tech = () => {
               <div className="m-auto relative group ">
                 <Image
                   className="group-hover:opacity-10"
-                  src="/../public/assets/skills/html.png"
+                  src="/assets/skills/html.png"
                   width="64"
                   height="64"
                   alt="html_logo"
@@ -73,7 +76,7 @@ const Tech = () => {
               <div className="m-auto relative group ">
                 <Image
                   className="group-hover:opacity-10"
-                  src="/../public/assets/skills/react.png"
+                  src="/assets/skills/react.png"
                   width="64"
                   height="64"
                   alt="react_logo"
@@ -93,7 +96,7 @@ const Tech = () => {
               <div className="m-auto relative group ">
                 <Image
                   className="group-hover:opacity-10"
-                  src="/../public/assets/skills/node.png"
+                  src="/assets/skills/node.png"
                   width="64"
                   height="64"
                   alt="node_logo"
@@ -113,7 +116,7 @@ const Tech = () => {
               <div className="m-auto relative group ">
                 <Image
                   className="group-hover:opacity-10"
-                  src="/../public/assets/skills/github.png"
+                  src="/assets/skills/github.png"
                   width="64"
                   height="64"
                   alt="github_logo"
@@ -133,7 +136,7 @@ const Tech = () => {
               <div className="m-auto relative group ">
                 <Image
                   className="group-hover:opacity-10"
-                  src="/../public/assets/skills/typeScript.png"
+                  src="/assets/skills/typeScript.png"
                   width="64"
                   height="64"
                   alt="typescript_logo"
@@ -153,7 +156,7 @@ const Tech = () => {
               <div className="m-auto relative group ">
                 <Image
                   className="group-hover:opacity-10"
-                  src="/../public/assets/skills/tailwind.png"
+                  src="/assets/skills/tailwind.png"
                   width="64"
                   height="64"
                   alt="tailwind_logo"
