@@ -3,14 +3,11 @@ import Link from "next/link";
 import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from "react-icons/ai";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import Contact from "../components/Contact";
+import { Modal } from "@mui/material";
 
 const Main = () => {
   const [active, setActive] = useState(false);
-  const toggleActive = () => {
-    setActive(!active);
-  };
-
-  console.log(active);
+  const toggleActive = () => setActive(!active);
 
   return (
     <div
@@ -54,10 +51,14 @@ const Main = () => {
         </div>
       </div>
 
-      <div className={active ? " h-full w-[20rem] bg-white" : ""}>
+      {/* <div className={active ? " h-full w-[20rem] bg-white" : ""}>
        { active ?  <AiOutlineClose onClick={toggleActive}/> : "" }
         
-      </div>
+      </div> */}
+
+      <Modal open={active}>
+        <Contact toggleActive={toggleActive} />
+      </Modal>
     </div>
   );
 };
