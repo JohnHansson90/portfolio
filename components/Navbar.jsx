@@ -1,58 +1,53 @@
 import Image from "next/image";
 import Link from "next/link";
 import { React, useEffect, useState } from "react";
+import { debounce } from "../utilities/helpers";
 import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from "react-icons/ai";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { BsFillPersonLinesFill } from "react-icons/Bs";
 
 const Navbar = (props) => {
   const [menu, setMenu] = useState(false);
-  const [scrollDirection, setScrollDirection] = useState(null);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [show, setShow] = useState(true);
+  // const [scrollDirection, setScrollDirection] = useState(null);
 
   const handleMenu = () => {
     setMenu(!menu);
   };
 
-  useEffect(() => {
-    let lastScrollY = window.pageYOffset;
+  const handleScroll = debounce(() => {
+    const currentScrollPos = window.pageYOffset;
 
-    const updateScrollDirection = () => {
-      const scrollY = window.pageYOffset;
-      const direction = scrollY > lastScrollY ? "down" : "up";
-      if (
-        direction !== scrollDirection &&
-        (scrollY - lastScrollY > 1 || scrollY - lastScrollY < 0)
-      ) {
-        setScrollDirection(direction);
-      }
-      lastScrollY = scrollY > 1 ? scrollY : 0;
-    };
-    window.addEventListener("scroll", updateScrollDirection); // add event listener
-    return () => {
-      window.removeEventListener("scroll", updateScrollDirection); // clean up
-    };
-  }, [scrollDirection]);
+    setShow(
+      (prevScrollPos > currentScrollPos &&
+        prevScrollPos - currentScrollPos > 50) ||
+        currentScrollPos < 1
+    );
+
+    setPrevScrollPos(currentScrollPos);
+  }, 100);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [prevScrollPos, show, handleScroll]);
 
   return (
     <div className="fixed w-full h-20 z-[100]">
       <div className="flex flex-col-reverse items-center">
-        <hr
-          className={
-            scrollDirection === "down"
-              ? "w-[80%] border-b-[.5] border-white border-opacity-[.8]"
-              : "up"
-          }
-        />
         <div className="flex justify-between items-center w-full h-20 px-2 2xl:px-16">
           <div className="z-10">
-            <Image
-              src="/jh_logo.jpeg"
-              alt="/"
-              width="60"
-              height="80"
-            />
+            <Image src="/jh_logo.jpeg" alt="" width="60" height="80" />
           </div>
-          <div className={scrollDirection === "down" ? "opacity-[.2]" : "up"}>
+          <div
+            className={
+              !show
+                ? "transition-opacity duration-100 ease-out opacity-0"
+                : "transition-opacity duration-1000 ease-in opacity-100"
+            }
+          >
             <ul className="hidden md:flex pr-5 uppercase">
               <Link href="#home ">
                 <li className="ml-10 text-sm border-b py-1 hover:border-none hover:font-bold hover:scale-150 ease-in duration-200">
@@ -84,9 +79,7 @@ const Navbar = (props) => {
 
       <div
         className={
-          menu
-            ? "md:hidden fixed right-0 top-0 w-full h-screen bg-black"
-            : ""
+          menu ? "md:hidden fixed right-0 top-0 w-full h-screen bg-black" : ""
         }
       >
         <div

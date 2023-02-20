@@ -18,6 +18,7 @@ export default function Home() {
       <About />
       <Tech />
       <Projects />
+
     </div>
   );
 }

@@ -103,7 +103,7 @@ const Tech = () => {
                 />
                 <div className="hidden group-hover:block absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-center">
                   <h3>Rating</h3>
-                  <p className="p-0 m-0 font-medium">3/5</p>
+                  <p className="p-0 m-0 font-medium">2/5</p>
                 </div>
               </div>
               <div className="py-4">
@@ -163,7 +163,7 @@ const Tech = () => {
                 />
                 <div className="hidden group-hover:block absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-center">
                   <h3>Rating</h3>
-                  <p className="p-0 m-0 font-medium">3/5</p>
+                  <p className="p-0 m-0 font-medium">2/5</p>
                 </div>
               </div>
               <div className="py-4">

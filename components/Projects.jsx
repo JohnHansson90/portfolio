@@ -14,7 +14,7 @@ const Projects = () => {
         <h1 className="uppercase pt-20 pb-10">
           creativity <span className="text-[#49ff49]">time</span>
         </h1>
-        <div className="grid md:grid-cols-2 h-screen w-full place-items-center">
+        <div className="grid md:grid-cols-2 h-screen w-full place-items-center pb-10">
           <ProjectItems
             title="emma's portfolio"
             tech="HTML with Sass"
