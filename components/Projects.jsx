@@ -1,20 +1,21 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import constructionImg from "../public/assets/projects/constructionImg.jpg";
 import johns_portfolio from "../public/assets/projects/johns_portfolio.png";
 import emmas_portfolio from "../public/assets/projects/emmas_portfolio.png";
 import ProjectItems from "./ProjectItems";
+import { BsFillArrowUpCircleFill } from "react-icons/Bs";
 
 const Projects = () => {
   return (
     <div
       id="projects"
-      className="w-full lg:h-screen flex flex-col justify-center items-center p-2 bg-gradient-to-t from-black"
+      className="w-full lg:h-full flex flex-col justify-center items-center p-2 bg-gradient-to-t from-black"
     >
       <div className="max-w-[1240px] h-screen flex flex-col justify-center items-center ">
         <h1 className="uppercase pt-20 pb-10">
           creativity <span className="text-[#49ff49]">time</span>
         </h1>
-        <div className="grid md:grid-cols-2 h-screen w-full place-items-center pb-10">
+        <div className="grid md:grid-cols-2 h-screen w-full place-items-center">
           <ProjectItems
             title="emma's portfolio"
             tech="HTML with Sass"
@@ -40,6 +41,12 @@ const Projects = () => {
             url="/movie_app "
           />
         </div>
+      </div>
+
+      <div className="flex w-full h-[10rem] justify-evenly items-center ">
+        <a href="#home">
+          <BsFillArrowUpCircleFill size={30} color={"#49ff49"} />
+        </a>
       </div>
     </div>
   );

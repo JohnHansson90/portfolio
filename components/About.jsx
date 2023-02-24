@@ -25,7 +25,7 @@ const About = () => {
             the polytechnic institute of Handelsakademin in Gothenburg, I
             graduated in June, 2022.
           </p>
-          <p className="py-2">
+          <p className="pt-2 pb-12">
             Why I went with Frontend and not Backend is because Frontend focuses
             on the visual aspects of a website and understanding the needs of
             the end user which I find intriguing. I'm spending my free time to
@@ -33,12 +33,14 @@ const About = () => {
             developer and having fun creating and delivering web applications.
           </p>
         </div>
-        <div className="w-fit h-auto m-auto shadow-xl rounded-full bg-[#49ff49] flex items-center justify-center p-2 hover:scale-110 ease-in duration-300 ">
+        <div className="w-fit h-auto m-auto shadow-xl rounded-full bg-[#49ff49] flex items-center justify-center p-2 hover:scale-110 ease-in duration-300">
           <Image
             src="/ProfilPic.png"
-            alt="Profile_pic"
-            width="200"
-            height="300"
+            alt="logo"
+            width="0"
+            height="0"
+            sizes="100vw"
+            className="w-full h-[100px]"
           />
         </div>
       </div>

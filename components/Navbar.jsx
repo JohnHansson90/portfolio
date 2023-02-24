@@ -4,12 +4,15 @@ import { React, useEffect, useState } from "react";
 import { debounce } from "../utilities/helpers";
 import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from "react-icons/ai";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
-import { BsFillPersonLinesFill } from "react-icons/Bs";
+import Contact from "../components/Contact";
+import { Modal } from "@mui/material";
 
 const Navbar = (props) => {
   const [menu, setMenu] = useState(false);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [show, setShow] = useState(true);
+  const [active, setActive] = useState(false);
+  const toggleActive = () => setActive(!active);
   // const [scrollDirection, setScrollDirection] = useState(null);
 
   const handleMenu = () => {
@@ -37,17 +40,27 @@ const Navbar = (props) => {
   return (
     <div className="fixed w-full h-20 z-[100]">
       <div className="flex flex-col-reverse items-center">
-        <div className="flex justify-between items-center w-full h-20 px-2 2xl:px-16">
-          <div className="z-10">
-            <Image src="/jh_logo.jpeg" alt="" width="60" height="80" />
-          </div>
-          <div
-            className={
-              !show
-                ? "transition-opacity duration-100 ease-out opacity-0"
-                : "transition-opacity duration-1000 ease-in opacity-100"
-            }
-          >
+        <div
+          className={
+            !show
+              ? "transition-opacity duration-100 ease-out opacity-[.1]  w-full h-20"
+              : "transition-opacity duration-1000 ease-in opacity-100  w-full h-20"
+          }
+        >
+          <div className="flex justify-between items-center w-full h-20 px-2 2xl:px-16">
+            <div className="z-10">
+              <Link href="#home">
+                <Image
+                  src="/logo.png"
+                  alt="logo"
+                  width="0"
+                  height="0"
+                  sizes="100vw"
+                  className="w-full h-auto z-[-1]"
+                />
+              </Link>
+            </div>
+
             <ul className="hidden md:flex pr-5 uppercase">
               <Link href="#home ">
                 <li className="ml-10 text-sm border-b py-1 hover:border-none hover:font-bold hover:scale-150 ease-in duration-200">
@@ -92,7 +105,7 @@ const Navbar = (props) => {
           <div>
             <div className="w-full">
               <div className="flex justify-end p-3 pr-2 cursor-pointer">
-                <AiOutlineClose size={25} onClick={handleMenu} />
+                <AiOutlineClose size={20} onClick={handleMenu} />
               </div>
             </div>
             <div className="border-b border-gray-300 mt-10 mb-24 text-center">
@@ -125,8 +138,20 @@ const Navbar = (props) => {
                     <FaGithub />
                   </div>
                   <div className="rounded-full border-2  border-gray-400 p-3 cursor-pointer hover:scale-125 ease-in duration-200">
-                    <AiOutlineMail />
+                    <AiOutlineMail onClick={toggleActive} />
                   </div>
+                  <Modal open={active}>
+                    <div>
+                      <div className="flex justify-end pr-6 pt-[1.8rem] w-full bg-black">
+                        <AiOutlineClose
+                          size={20}
+                          className="cursor-pointer"
+                          onClick={toggleActive}
+                        />
+                      </div>
+                      <Contact />
+                    </div>
+                  </Modal>
                 </div>
               </div>
             </div>

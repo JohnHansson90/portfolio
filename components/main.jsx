@@ -1,5 +1,4 @@
 import { React, useState } from "react";
-import Link from "next/link";
 import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from "react-icons/ai";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import Contact from "../components/Contact";
@@ -51,13 +50,13 @@ const Main = () => {
         </div>
       </div>
 
-      {/* <div className={active ? " h-full w-[20rem] bg-white" : ""}>
-       { active ?  <AiOutlineClose onClick={toggleActive}/> : "" }
-        
-      </div> */}
-
       <Modal open={active}>
-        <Contact toggleActive={toggleActive} />
+        <div>
+          <div  className="flex justify-end pr-6 pt-[1.8rem] w-full bg-black">
+            <AiOutlineClose size={20} className="cursor-pointer" onClick={toggleActive}/>
+          </div>
+          <Contact />
+        </div>
       </Modal>
     </div>
   );
