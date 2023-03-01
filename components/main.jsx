@@ -1,12 +1,36 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from "react-icons/ai";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import Contact from "../components/Contact";
+import Spinner from "../utilities/Spinner";
 import { Modal } from "@mui/material";
 
 const Main = () => {
   const [active, setActive] = useState(false);
-  const toggleActive = () => setActive(!active);
+  const [isLoading, setIsLoading] = useState(false);
+  const [showContact, setShowContact] = useState(false);
+  const [showCloseButton, setShowCloseButton] = useState(true);
+
+  const toggleActive = () => {
+    setActive(!active);
+    setShowCloseButton(false);
+  };
+
+  useEffect(() => {
+    let timeoutId = null;
+    if (active) {
+      setShowContact(false);
+      setIsLoading(true);
+
+      timeoutId = setTimeout(() => {
+        setShowContact(true);
+        setIsLoading(false);
+      }, 2000);
+    }
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [active]);
 
   return (
     <div
@@ -52,10 +76,22 @@ const Main = () => {
 
       <Modal open={active}>
         <div>
-          <div  className="flex justify-end pr-6 pt-[1.8rem] w-full bg-black">
-            <AiOutlineClose size={20} className="cursor-pointer" onClick={toggleActive}/>
+          <div className="flex justify-end pr-6 pt-[1.8rem] w-full bg-black">
+            {showCloseButton && (
+              <AiOutlineClose
+                size={25}
+                className="cursor-pointer hover:scale-125 ease-in duration-200"
+                onClick={toggleActive}
+              />
+            )}
           </div>
-          <Contact />
+          {showContact ? (
+            <Contact toggleActive={toggleActive}/>
+          ) : isLoading ? (
+            <div className="flex justify-center items-center h-screen">
+              <Spinner />
+            </div>
+          ) : null}
         </div>
       </Modal>
     </div>

@@ -43,7 +43,7 @@ const Navbar = (props) => {
         <div
           className={
             !show
-              ? "transition-opacity duration-100 ease-out opacity-[.1]  w-full h-20"
+              ? "transition-opacity duration-100 ease-out opacity-[.1] w-full h-20"
               : "transition-opacity duration-1000 ease-in opacity-100  w-full h-20"
           }
         >
