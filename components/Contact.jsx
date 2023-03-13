@@ -2,58 +2,93 @@ import React, { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from "react-icons/ai";
 
 const Contact = ({ toggleActive }) => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [fullname, setFullname] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+  const [errors, setErrors] = useState({});
+  const [buttonText, setButtonText] = useState("Send");
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [showFailureMessage, setShowFailureMessage] = useState(false);
 
-  const handleSubmit = (e) => {
+  console.log(
+    `Fullname: ${fullname}, Email: (${email}), subject: ${subject}, message: ${message} `
+  );
+
+  // Validation check method
+  const handleValidation = () => {
+    let tempErrors = {};
+    let isValid = true;
+
+    if (fullname.length <= 3) {
+      tempErrors["fullname"] = true;
+      isValid = false;
+    }
+    if (email.length <= 0) {
+      tempErrors["email"] = true;
+      isValid = false;
+    }
+    if (subject.length <= 0) {
+      tempErrors["subject"] = true;
+      isValid = false;
+    }
+    if (message.length <= 0) {
+      tempErrors["message"] = true;
+      isValid = false;
+    }
+
+    setErrors({ ...tempErrors });
+    console.log("errors", errors);
+    return isValid;
+  };
+
+  //   Handling form submit
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Sending");
 
-    let data = {
-      name,
-      email,
-      message,
-    };
-    console.log(data);
+    let isValidForm = handleValidation();
 
-    fetch("/api/form", {
-      method: "POST",
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => {
-        console.log("Response received");
-        if (res.status === 200) {
-          console.log("Response succeeded!");
-          setName("");
-          setEmail("");
-          setMessage("");
-          setTimeout(() => {
-            setSubmitted(true);
-          }, 1500);
-        }
-      })
-      .catch((error) => {
-        console.error("Error occurred:", error);
+    if (isValidForm) {
+      setButtonText("Sending");
+      const res = await fetch("/api/sendgrid", {
+        body: JSON.stringify({
+          email: email,
+          fullname: fullname,
+          subject: subject,
+          message: message,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
       });
+
+      const { error } = await res.json();
+      if (error) {
+        console.log(error);
+        setShowSuccessMessage(false);
+        setShowFailureMessage(true);
+        setButtonText("Send");
+        return;
+      }
+      setShowSuccessMessage(true);
+      setShowFailureMessage(false);
+      setButtonText("Send");
+      setTimeout(() => {
+        setSubmitted(true);
+      }, 2000);
+    }
+    console.log(
+      `Fullname: ${fullname}, Email: ${email}, subject: ${subject}, message: ${message} `
+    );
   };
 
   return (
     <section className="flex flex-col justify-center h-screen w-full bg-black">
       <div className="flex flex-col justify-center h-screen w-[90%] m-auto text-center">
         <div className="flex flex-col relative justify-center h-[100%] rounded-md shadow-md md:p-10 lg:p-20 ">
-          <div className="flex justify-end">
-            <AiOutlineClose
-              size={25}
-              className="cursor-pointer hover:scale-125 ease-in duration-200"
-              onClick={toggleActive}
-            />
-          </div>
           {submitted ? (
             <div className="flex flex-col justify-center items-center sm:text-3xl">
               <p>
@@ -61,84 +96,151 @@ const Contact = ({ toggleActive }) => {
                 as I can.
               </p>
 
-              <button className="bg-gradient-to-r from-[#49ff49] to-[#bbfcca] w-40 text-black rounded-md mx-4 mt-8 py-2 text-xs font-bold">
+              <div
+                className="border-[#49ff49] border-2 text-[#49ff49] w-40 rounded-md mx-4 mt-8 py-2 text-xs font-bold cursor-pointer text-center"
+                onClick={toggleActive}
+              >
                 Close
-              </button>
+              </div>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 mx-2  ">
-              <header className="md:flex flex-col justify-start pt-20">
-                <h1 className="pt-6 text-[1.7rem] sm:text-6xl text-center md:text-left">
+              <header className="sm:flex flex-col justify-start pt-16">
+                <h1 className=" text-[3rem] sm:text-6xl sm:pt-6 text-center sm:text-left">
                   Get in touch, <br /> let's{" "}
                   <span className="text-[#49ff49]">talk</span>.
                 </h1>
-                <p className="font-light text-base text-white pt-10 md:text-left">
-                  Fill in the details and I'll get back to you as soon as I can.
-                </p>
               </header>
 
-              <div className="icons-container inline-flex flex-col mt-10 mb-20">
+              <div className="icons-container inline-flex flex-col sm:mt-10 mb-20">
                 <form
                   onSubmit={handleSubmit}
-                  className="form text-start px-4 py-14 rounded-lg p-4 flex flex-col"
+                  className="form text-start px-4 py-6 sm:py-14 rounded-lg p-4 flex flex-col"
                 >
+                  <p className="text-2xl text-center font-bold">
+                    Fill in the details and I'll get back to <br /> you as soon
+                    as I can.
+                  </p>
+
                   <label
-                    htmlFor="name"
-                    className="text-sm text-gray-400 mx-4 font-bold"
+                    htmlFor="fullname"
+                    className="text-gray-500 font-light mt-8 dark:text-gray-50"
                   >
-                    Your Name
+                    Name
+                    {fullname.length < 3 ? (
+                      <span className="text-red-500">*</span>
+                    ) : (
+                      ""
+                    )}
                   </label>
                   <input
                     type="text"
-                    name="name"
-                    value={name}
-                    required
-                    className="font-light text-black rounded-md border focus:outline-none py-2 pl-2 mt-2 px-1 mx-4 focus:ring-4 focus:border-none ring-[#49ff49]"
+                    value={fullname}
                     onChange={(e) => {
-                      setName(e.target.value);
+                      setFullname(e.target.value);
                     }}
+                    name="fullname"
+                    className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-green-500 font-light text-gray-500"
                   />
+                  {errors?.fullname && (
+                    <p className="text-red-500">Name cannot be empty.</p>
+                  )}
+
                   <label
                     htmlFor="email"
-                    className="text-sm text-gray-400 mx-4 mt-4 font-bold"
+                    className="text-gray-500 font-light mt-4 dark:text-gray-50"
                   >
-                    Your Email
+                    Email
+                    {email.length < 5 ? (
+                      <span className="text-red-500">*</span>
+                    ) : (
+                      ""
+                    )}
                   </label>
                   <input
-                    type="text"
+                    type="email"
                     name="email"
                     value={email}
-                    required
-                    className="font-light text-black rounded-md border focus:outline-none py-2 pl-2 mt-2 px-1 mx-4 focus:ring-4 focus:border-none ring-[#49ff49]"
                     onChange={(e) => {
                       setEmail(e.target.value);
                     }}
+                    className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-green-500 font-light text-gray-500"
                   />
+                  {errors?.email && (
+                    <p className="text-red-500">Email cannot be empty.</p>
+                  )}
+
+                  <label
+                    htmlFor="subject"
+                    className="text-gray-500 font-light mt-4 dark:text-gray-50"
+                  >
+                    Subject
+                    {subject.length < 5 ? (
+                      <span className="text-red-500">*</span>
+                    ) : (
+                      ""
+                    )}
+                  </label>
+                  <input
+                    type="text"
+                    name="subject"
+                    value={subject}
+                    onChange={(e) => {
+                      setSubject(e.target.value);
+                    }}
+                    className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-green-500 font-light text-gray-500"
+                  />
+                  {errors?.subject && (
+                    <p className="text-red-500">Subject cannot be empty.</p>
+                  )}
                   <label
                     htmlFor="message"
-                    className="text-sm text-gray-400 mx-4 mt-4 font-bold"
+                    className="text-gray-500 font-light mt-4 dark:text-gray-50"
                   >
-                    Email me
+                    Message
+                    {message.length < 5 ? (
+                      <span className="text-red-500">*</span>
+                    ) : (
+                      ""
+                    )}
                   </label>
                   <textarea
-                    spellCheck="false"
-                    placeholder="Message..."
-                    required
-                    type="text"
                     name="message"
                     value={message}
-                    className="font-light text-black rounded-md border focus:outline-none py-2 mt-2 pl-2 mx-4 focus:ring-4 focus:border-none ring-[#49ff49] max-h-24"
                     onChange={(e) => {
                       setMessage(e.target.value);
                     }}
-                  />
-
-                  <button
-                    type="submit"
-                    className="bg-gradient-to-r from-[#49ff49] to-[#bbfcca] w-40 text-black rounded-md mx-4 mt-8 py-2 text-xs font-bold shadow-none"
-                  >
-                    Submit
-                  </button>
+                    className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-green-500 font-light text-gray-500"
+                  ></textarea>
+                  {errors?.message && (
+                    <p className="text-red-500">Message cannot be empty.</p>
+                  )}
+                  <div className="text-left">
+                    {showSuccessMessage && (
+                      <p className="text-green-500 font-semibold text-sm my-2">
+                        Thank you! Your Message has been delivered.
+                      </p>
+                    )}
+                    {showFailureMessage && (
+                      <p className="text-red-500">
+                        Oops! Something went wrong, please try again.
+                      </p>
+                    )}
+                  </div>
+                  <div className="flex flex-row items-center justify-start gap-8 ">
+                    <button
+                      type="submit"
+                      className=" bg-gradient-to-r from-[#49ff49] to-[#bbfcca] w-40 text-black rounded-md mx-4 mt-8 py-2 text-xs font-bold"
+                    >
+                      {buttonText}
+                    </button>
+                    <div
+                      className="border-[#49ff49] border-2 text-[#49ff49] w-40 rounded-md mx-4 mt-8 py-2 text-xs font-bold cursor-pointer text-center"
+                      onClick={toggleActive}
+                    >
+                      Back
+                    </div>
+                  </div>
                 </form>
               </div>
             </div>

@@ -109,7 +109,7 @@ const Navbar = (props) => {
               </div>
             </div>
             <div className="border-b border-gray-300 mt-10 mb-24 text-center">
-              <p className="w-[100%] pt-8 pb-10">Explore and enjoy.</p>
+              <h2 className="w-[100%] pt-8 pb-10 text-[#ffffff]">Explore and enjoy.</h2>
             </div>
             <div className="flex flex-col text-center">
               <ul className="uppercase">

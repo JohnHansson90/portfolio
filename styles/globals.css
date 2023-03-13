@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-  scroll-behavior: smooth!important;
+  scroll-behavior: smooth !important;
 }
 
 @layer base {
@@ -12,7 +12,6 @@ html {
   }
 
   h1,
-  h2,
   h3,
   h4,
   h5,
@@ -21,11 +20,11 @@ html {
   }
 
   h1 {
-    @apply text-4xl sm:text-5xl md:text-6xl;
+    @apply sm:text-6xl;
   }
 
   h2 {
-    @apply text-3xl sm:text-4xl;
+    @apply text-2xl;
   }
 
   p {
@@ -37,6 +36,18 @@ html {
   }
 
   button {
-    @apply  rounded-xl uppercase bg-gradient-to-r from-[#49ff49] to-[#bbfcca] text-white;
+    @apply rounded-xl uppercase bg-gradient-to-r from-[#49ff49] to-[#bbfcca] text-white;
+  }
+
+  .open {
+    @apply w-[300px] h-[300px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-45 z-[999];
+  }
+
+  .open span {
+    @apply block w-full h-[50%] transition-all duration-[200];
+  }
+
+  .open:hover span {
+    @apply h-[16%];
   }
 }

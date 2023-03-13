@@ -13,7 +13,7 @@ const Projects = () => {
       className="w-full lg:h-full flex flex-col justify-center items-center p-2 bg-gradient-to-t from-black"
     >
       <div className="max-w-[1240px] h-screen flex flex-col justify-center items-center ">
-        <h1 className="uppercase pt-20 pb-10">
+        <h1 className="uppercase pt-20 pb-10 sm:text-6xl">
           creativity <span className="text-[#49ff49]">time</span>
         </h1>
         <div className="grid md:grid-cols-2 h-screen w-full place-items-center">

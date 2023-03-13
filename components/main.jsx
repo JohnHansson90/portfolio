@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
-import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from "react-icons/ai";
+import { AiOutlineClose, AiOutlineMail } from "react-icons/ai";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
-import Contact from "../components/Contact";
+import Contact from "./Contact";
 import Spinner from "../utilities/Spinner";
 import { Modal } from "@mui/material";
 
@@ -35,11 +35,11 @@ const Main = () => {
   return (
     <div
       id="home"
-      className="w-full h-screen text-center flex flex-col justify-center items-center bg-gradient-to-b from-black"
+      className="w-full h-full text-center flex flex-col justify-center items-center bg-gradient-to-b from-black"
     >
-      <div className="max-w-[1240px] w-full h-full p-2 flex flex-col justify-center items-center">
+      <div className="max-w-[1240px] w-full h-screen flex flex-col justify-center items-center p-2 sm:pb-[3rem]">
         <div>
-          <h1 className="m-auto text-[1.7rem] sm:pb-2 sm:text-6xl">
+          <h1 className="m-auto text-2xl sm:pb-2 ">
             Hi, I'm <span className="text-[#49ff49]">John</span>
           </h1>
           <h2 className="m-auto text-[1.3rem] sm:pb-4 sm:text-4xl">
@@ -51,10 +51,10 @@ const Main = () => {
             environments is something I strive for and having fun creating
             fantastic web applications.
           </p>
-          <h3 className="pt-4 sm:pt-10">Feel free to explore</h3>
+          <h3 className="pt-10 sm:pt-10">Feel free to explore</h3>
         </div>
 
-        <div className="flex items-center justify-center w-full max-w-[380px] gap-8 absolute bottom-40 left-100 sm:bottom-[13rem]">
+        <div className="flex items-center justify-center w-full max-w-[380px] gap-8 absolute bottom-[12rem] sm:bottom-[10rem]">
           <div className="rounded-full border-2 border-gray-400 p-3 cursor-pointer hover:scale-125 ease-in duration-200">
             <a href="https://www.linkedin.com/in/johnhansson90" target="_blank">
               <FaLinkedinIn />
@@ -86,7 +86,7 @@ const Main = () => {
             )}
           </div>
           {showContact ? (
-            <Contact toggleActive={toggleActive}/>
+            <Contact toggleActive={toggleActive} />
           ) : isLoading ? (
             <div className="flex justify-center items-center h-screen">
               <Spinner />

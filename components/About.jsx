@@ -7,13 +7,13 @@ const About = () => {
       id="about"
       className="w-full md:h-screen p-2 flex items-center justify-center flex-col bg-gradient-to-t from-black "
     >
-      <div className="max-w-[1240px] mx-10 md:grid grid-cols-3 gap-8">
-        <div className="col-span-2 ">
+      <div className="max-w-[1240px] flex justify-center flex-col-reverse mx-10 md:grid grid-cols-3 gap-8">
+        <div className="col-span-2">
           <p className="uppercase font-bold tracking-widest">
             Cool, i've got you
             <span className="text-[#49ff49]"> intrigued </span>
           </p>
-          <h1 className="pt-2 pb-8 uppercase">My journey</h1>
+          <h1 className="pt-2 pb-8 uppercase sm:text-6xl">My journey</h1>
           <p className="py-2">
             I started out as an electrician in Gothenburg and kept working as
             one for almost 11 years. It was fun in the beginning but I soon
@@ -33,19 +33,36 @@ const About = () => {
             developer and having fun creating and delivering web applications.
           </p>
         </div>
-        <div className="w-fit h-auto m-auto shadow-xl rounded-full bg-[#49ff49] flex items-center justify-center p-2 hover:scale-110 ease-in duration-300">
-          <Image
-            src="/ProfilPic.png"
-            alt="logo"
-            width="0"
-            height="0"
-            sizes="100vw"
-            className="w-full h-[100px]"
-          />
+
+        <div className="flex justify-center">
+          <div
+            className="pt-10 pl-10 md:pt-[3rem] md:p-0 h-[180px] w-[180px] transform rotate-45 rounded-tl-[80%] rounded-br-[80%] overflow-hidden border-2 border-[#49ff49] shadow-inner shadow-black cursor-pointer bg-white 
+        "
+          >
+            <div className="open">
+              <span className="block w-full h-full bg-[#49ff49] absolute top-[18%] rounded-bl-[80%] rounded-br-[80%] shadow-lg shadow-black transition-all duration-500"></span>
+            </div>
+            <div className="flex h-[170px] w-[170px] rounded-full border-4 border-[#49ff49] bg-black shadow-inner shadow-[#49ff49]  transform -rotate-45">
+              <span className="absolute bg-white top-[1.8rem] left-[8.6rem] rounded-full h-6 w-6"></span>
+              <span className="absolute bg-white bottom-[8rem] left-[6rem] rounded-full h-12 w-12"></span>
+              <div className="ball w-fit h-auto m-auto rounded-full bg-[#49ff49] p-2 hover:scale-110 ease-in duration-300 shadow-inner shadow-black">
+                <Image
+                  src="/ProfilPic.png"
+                  alt="logo"
+                  width="0"
+                  height="0"
+                  sizes="100vw"
+                  className="w-full h-[100px]"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
+
+ 
 };
 
 export default About;
