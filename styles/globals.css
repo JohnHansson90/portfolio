@@ -19,14 +19,6 @@ html {
     @apply font-bold;
   }
 
-  h1 {
-    @apply sm:text-6xl;
-  }
-
-  h2 {
-    @apply text-2xl;
-  }
-
   p {
     @apply text-slate-300;
   }

@@ -8,7 +8,7 @@ const Tech = () => {
       className="w-full lg:h-screen flex flex-col justify-center items-center p-2 bg-gradient-to-b from-black"
     >
       <div className="max-w-[1240px] flex flex-col justify-center gap-8 h-full items-center">
-        <h1 className="uppercase pt-32 sm:text-6xl">tech stack</h1>
+        <h1 className="uppercase pt-32 text-2xl sm:text-4xl">tech stack</h1>
         <p className="tracking-wide">My Current tech that i'm focusing on</p>
         <div className="grid pt-20 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
           <div className="p-6 rounded-xl hover:scale-110 ease-in duration-300">

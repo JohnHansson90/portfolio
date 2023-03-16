@@ -13,7 +13,7 @@ const About = () => {
             Cool, i've got you
             <span className="text-[#49ff49]"> intrigued </span>
           </p>
-          <h1 className="pt-2 pb-8 uppercase sm:text-6xl">My journey</h1>
+          <h1 className="pt-10 pb-2 uppercase text-3xl sm:text-4xl">My journey</h1>
           <p className="py-2">
             I started out as an electrician in Gothenburg and kept working as
             one for almost 11 years. It was fun in the beginning but I soon

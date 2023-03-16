@@ -1,13 +1,15 @@
-import sendgrid from "@sendgrid/mail";
+require("dotenv").config();
+const sgMail = require("@sendgrid/mail");
 
-sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
+const apiKey = process.env.SENDGRID_API_KEY;
+sgMail.setApiKey(apiKey);
 
 async function sendEmail(req, res) {
   try {
-    await sendgrid.send({
-      to: "johnhansson90@gmail.com", // Your email where you'll receive emails
-      from: "johnhansson90@gmail.com", // your website email address here
-      subject: `[Lead from website] : ${req.body.subject}`,
+    await sgMail.send({
+      to: "johnhansson90@gmail.com",
+      from: "johnhansson90@gmail.com",
+      subject: `From portfolio website: ${req.body.subject}`,
       html: `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
       <html lang="en">
       <head>
@@ -26,15 +28,11 @@ async function sendEmail(req, res) {
         <div class="img-container" style="display: flex;justify-content: center;align-items: center;border-radius: 5px;overflow: hidden; font-family: 'helvetica', 'ui-sans';">              
               
               <div class="container" style="margin-left: 20px;margin-right: 20px;">
-              <h3>You've got a new mail from ${req.body.fullname}, their email is: ✉️${req.body.email} </h3>
+              <h3>You've got a new mail from ${req.body.fullname}!</h3>
+              <p>their email is: ✉️${req.body.email}</p>
               <div style="font-size: 16px;">
-              <p>Message:</p>
-              <p>${req.body.message}</p>
-              <br>
+              <p>Message: ${req.body.message}</p>
               </div>
-            
-              <p class="footer" style="font-size: 16px;padding-bottom: 20px;border-bottom: 1px solid #D1D5DB;">Regards<br>John Hansson<br>Software Developer<br>+763 13 44 63</p>
-           
         </div>
       </body>
       </html>`,

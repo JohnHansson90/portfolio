@@ -5,6 +5,7 @@ import { debounce } from "../utilities/helpers";
 import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from "react-icons/ai";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import Contact from "../components/Contact";
+import Spinner from "../utilities/Spinner";
 import { Modal } from "@mui/material";
 
 const Navbar = (props) => {
@@ -12,11 +13,17 @@ const Navbar = (props) => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [show, setShow] = useState(true);
   const [active, setActive] = useState(false);
-  const toggleActive = () => setActive(!active);
-  // const [scrollDirection, setScrollDirection] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [showContact, setShowContact] = useState(false);
+  const [showCloseButton, setShowCloseButton] = useState(true);
 
   const handleMenu = () => {
     setMenu(!menu);
+  };
+
+  const toggleActive = () => {
+    setActive(!active);
+    setShowCloseButton(false);
   };
 
   const handleScroll = debounce(() => {
@@ -34,8 +41,27 @@ const Navbar = (props) => {
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, [prevScrollPos, show, handleScroll]);
+
+  useEffect(() => {
+    let timeoutId = null;
+    if (active) {
+      setShowContact(false);
+      setIsLoading(true);
+
+      timeoutId = setTimeout(() => {
+        setShowContact(true);
+        setIsLoading(false);
+      }, 1000);
+    }
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [active]);
 
   return (
     <div className="fixed w-full h-20 z-[100]">
@@ -109,21 +135,51 @@ const Navbar = (props) => {
               </div>
             </div>
             <div className="border-b border-gray-300 mt-10 mb-24 text-center">
-              <h2 className="w-[100%] pt-8 pb-10 text-[#ffffff]">Explore and enjoy.</h2>
+              <h2 className="w-[100%] pt-8 pb-10 text-[#ffffff]">
+                Explore and enjoy.
+              </h2>
             </div>
             <div className="flex flex-col text-center">
               <ul className="uppercase">
                 <Link href="#home">
-                  <li className="my-4 py-2 text-sm ">Home</li>
+                  <li
+                    className="my-4 py-2 text-sm "
+                    onClick={() => {
+                      setMenu(!menu);
+                    }}
+                  >
+                    Home
+                  </li>
                 </Link>
                 <Link href="#about">
-                  <li className="my-4 py-2 text-sm ">About</li>
+                  <li
+                    className="my-4 py-2 text-sm "
+                    onClick={() => {
+                      setMenu(!menu);
+                    }}
+                  >
+                    About
+                  </li>
                 </Link>
                 <Link href="#tech">
-                  <li className="my-4 py-2 text-sm ">Tech Stack</li>
+                  <li
+                    className="my-4 py-2 text-sm "
+                    onClick={() => {
+                      setMenu(!menu);
+                    }}
+                  >
+                    Tech Stack
+                  </li>
                 </Link>
                 <Link href="#projects">
-                  <li className="my-4 py-2 text-sm ">Projects</li>
+                  <li
+                    className="my-4 py-2 text-sm "
+                    onClick={() => {
+                      setMenu(!menu);
+                    }}
+                  >
+                    Projects
+                  </li>
                 </Link>
               </ul>
               <div className="flex flex-col items-center pt-[6rem] gap-8">
@@ -142,14 +198,22 @@ const Navbar = (props) => {
                   </div>
                   <Modal open={active}>
                     <div>
-                      <div className="flex justify-end pr-6 pt-[1.8rem] w-full bg-black">
-                        <AiOutlineClose
-                          size={20}
-                          className="cursor-pointer"
-                          onClick={toggleActive}
-                        />
-                      </div>
-                      <Contact />
+                      {showCloseButton && (
+                        <div className="flex justify-end pr-6 pt-[1.8rem] w-full bg-black">
+                          <AiOutlineClose
+                            size={20}
+                            className="cursor-pointer"
+                            onClick={toggleActive}
+                          />
+                        </div>
+                      )}
+                      {showContact ? (
+                        <Contact toggleActive={toggleActive} />
+                      ) : isLoading ? (
+                        <div className="flex justify-center items-center h-screen">
+                          <Spinner />
+                        </div>
+                      ) : null}
                     </div>
                   </Modal>
                 </div>

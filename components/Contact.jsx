@@ -12,10 +12,6 @@ const Contact = ({ toggleActive }) => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [showFailureMessage, setShowFailureMessage] = useState(false);
 
-  console.log(
-    `Fullname: ${fullname}, Email: (${email}), subject: ${subject}, message: ${message} `
-  );
-
   // Validation check method
   const handleValidation = () => {
     let tempErrors = {};
@@ -117,7 +113,7 @@ const Contact = ({ toggleActive }) => {
                   onSubmit={handleSubmit}
                   className="form text-start px-4 py-6 sm:py-14 rounded-lg p-4 flex flex-col"
                 >
-                  <p className="text-2xl text-center font-bold">
+                  <p className="text-1xl text-center font-bold">
                     Fill in the details and I'll get back to <br /> you as soon
                     as I can.
                   </p>
@@ -140,7 +136,7 @@ const Contact = ({ toggleActive }) => {
                       setFullname(e.target.value);
                     }}
                     name="fullname"
-                    className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-green-500 font-light text-gray-500"
+                    className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-green-500 font-light text-white"
                   />
                   {errors?.fullname && (
                     <p className="text-red-500">Name cannot be empty.</p>
@@ -164,7 +160,7 @@ const Contact = ({ toggleActive }) => {
                     onChange={(e) => {
                       setEmail(e.target.value);
                     }}
-                    className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-green-500 font-light text-gray-500"
+                    className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-green-500 font-light text-white"
                   />
                   {errors?.email && (
                     <p className="text-red-500">Email cannot be empty.</p>
@@ -188,7 +184,7 @@ const Contact = ({ toggleActive }) => {
                     onChange={(e) => {
                       setSubject(e.target.value);
                     }}
-                    className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-green-500 font-light text-gray-500"
+                    className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-green-500 font-light text-white"
                   />
                   {errors?.subject && (
                     <p className="text-red-500">Subject cannot be empty.</p>
@@ -210,7 +206,7 @@ const Contact = ({ toggleActive }) => {
                     onChange={(e) => {
                       setMessage(e.target.value);
                     }}
-                    className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-green-500 font-light text-gray-500"
+                    className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-green-500 font-light text-white"
                   ></textarea>
                   {errors?.message && (
                     <p className="text-red-500">Message cannot be empty.</p>
