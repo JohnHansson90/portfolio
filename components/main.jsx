@@ -47,12 +47,12 @@ const Main = () => {
             I think Web Development is really fun, especially the design aspect
             of it and the animations when pixels align perfectly. User friendly
             environments is something I strive for and having fun creating
-            fantastic web applications.
+            web applications.
           </p>
           <h3 className="pt-10 sm:pt-10">Feel free to explore</h3>
         </div>
 
-        <div className="flex items-center justify-center w-full max-w-[380px] gap-8 absolute bottom-[10rem] sm:bottom-[10rem]">
+        <div className="flex items-center justify-center w-full max-w-[380px] gap-8 absolute bottom-[10rem] sm:bottom-[14rem]">
           <div className="rounded-full border-2 border-gray-400 p-3 cursor-pointer hover:scale-125 ease-in duration-200">
             <a href="https://www.linkedin.com/in/johnhansson90" target="_blank">
               <FaLinkedinIn />

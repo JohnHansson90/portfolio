@@ -81,8 +81,8 @@ const Navbar = (props) => {
                   alt="logo"
                   width="0"
                   height="0"
-                  sizes="100vw"
-                  className="w-full h-auto z-[-1]"
+                  sizes="50vw"
+                  className="w-[150px] h-[150px] z-[-1]"
                 />
               </Link>
             </div>
@@ -188,10 +188,20 @@ const Navbar = (props) => {
                 </p>
                 <div className="flex items-center justify-evenly mb-4 w-full">
                   <div className="rounded-full border-2 border-gray-400 p-3 cursor-pointer hover:scale-125 ease-in duration-200">
-                    <FaLinkedinIn />
+                    <a
+                      href="https://www.linkedin.com/in/johnhansson90"
+                      target="_blank"
+                    >
+                      <FaLinkedinIn />
+                    </a>
                   </div>
                   <div className="rounded-full border-2  border-gray-400 p-3 cursor-pointer hover:scale-125 ease-in duration-200">
-                    <FaGithub />
+                    <a
+                      href="https://www.github.com/JohnHansson90"
+                      target="_blank"
+                    >
+                      <FaGithub />
+                    </a>
                   </div>
                   <div className="rounded-full border-2  border-gray-400 p-3 cursor-pointer hover:scale-125 ease-in duration-200">
                     <AiOutlineMail onClick={toggleActive} />

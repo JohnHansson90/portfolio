@@ -31,15 +31,15 @@ html {
     @apply rounded-xl uppercase bg-gradient-to-r from-[#49ff49] to-[#bbfcca] text-white;
   }
 
-  .open {
+  .closed {
     @apply w-[300px] h-[300px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-45 z-[999];
   }
 
-  .open span {
-    @apply block w-full h-[50%] transition-all duration-[200];
+  .closed span {
+    @apply block w-full h-[51%]  ;
   }
 
-  .open:hover span {
-    @apply h-[16%];
+  .closed:hover span {
+    @apply h-[20%] hover:scale-110 transition-all ease-in duration-300;
   }
 }
