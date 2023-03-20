@@ -25,7 +25,7 @@ const Main = () => {
       timeoutId = setTimeout(() => {
         setShowContact(true);
         setIsLoading(false);
-      }, 1000);
+      }, 1500);
     }
     return () => {
       clearTimeout(timeoutId);
