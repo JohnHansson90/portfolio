@@ -13,6 +13,12 @@ const ProjectItems = ({ title, tech, backgroundImage, url }) => {
       <div className="hidden group-hover:block absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-center">
         <h2 className="tracking-widest uppercase ">{title}</h2>
         <p className="pt-2 pb-8">{tech}</p>
+
+        <Link legacyBehavior href="https://www.github.com/JohnHansson90" >
+          <a target="_blank" rel="noopener noreferrer">
+            More
+          </a>
+        </Link>
       </div>
     </div>
   );

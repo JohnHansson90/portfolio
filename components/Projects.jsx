@@ -3,7 +3,6 @@ import "tailwindcss/tailwind.css";
 import constructionImg from "../public/assets/projects/constructionImg.jpg";
 import emmas_portfolio from "../public/assets/projects/emmas_portfolio.png";
 import ProjectItems from "./ProjectItems";
-import { BsFillArrowUpCircleFill } from "react-icons/Bs";
 
 const Projects = () => {
   return (
@@ -30,13 +29,13 @@ const Projects = () => {
           />
           <ProjectItems
             title="js game"
-            tech="Vanilla Javascript with Css"
+            tech="Javascript / CSS"
             backgroundImage={constructionImg}
             url="/js_game "
           />
           <ProjectItems
             title="movie app"
-            tech="ReactJS with Css components"
+            tech="ReactJS / CSS components"
             backgroundImage={constructionImg}
             url="/movie_app "
           />
