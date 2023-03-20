@@ -190,7 +190,7 @@ const Navbar = (props) => {
                   <div className="rounded-full border-2 border-gray-400 p-3 cursor-pointer hover:scale-125 ease-in duration-200">
                     <a
                       href="https://www.linkedin.com/in/johnhansson90"
-                      target="_blank"
+                      target="_blank" rel="noopener noreferrer"
                     >
                       <FaLinkedinIn />
                     </a>
@@ -198,7 +198,7 @@ const Navbar = (props) => {
                   <div className="rounded-full border-2  border-gray-400 p-3 cursor-pointer hover:scale-125 ease-in duration-200">
                     <a
                       href="https://www.github.com/JohnHansson90"
-                      target="_blank"
+                      target="_blank" rel="noopener noreferrer"
                     >
                       <FaGithub />
                     </a>

@@ -88,7 +88,7 @@ const Contact = ({ toggleActive }) => {
           {submitted ? (
             <div className="flex flex-col justify-center items-center sm:text-3xl">
               <p>
-                Thank you for contacting me, <br /> I'll get back to you as soon
+                Thank you for contacting me, <br /> I&apos;ll get back to you as soon
                 as I can.
               </p>
 
@@ -103,7 +103,7 @@ const Contact = ({ toggleActive }) => {
             <div className="grid grid-cols-1 md:grid-cols-2 mx-2  ">
               <header className="sm:flex flex-col justify-start pt-16">
                 <h1 className=" text-[3rem] sm:text-6xl sm:pt-6 text-center sm:text-left">
-                  Get in touch, <br /> let's{" "}
+                  Get in touch, <br /> let&apos;s{" "}
                   <span className="text-[#49ff49]">talk</span>.
                 </h1>
               </header>
@@ -114,7 +114,7 @@ const Contact = ({ toggleActive }) => {
                   className="form text-start px-4 py-6 sm:py-14 rounded-lg p-4 flex flex-col"
                 >
                   <p className="text-1xl text-center font-bold">
-                    Fill in the details and I'll get back to <br /> you as soon
+                    Fill in the details and I&apos;ll get back to <br /> you as soon
                     as I can.
                   </p>
 

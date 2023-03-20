@@ -7,6 +7,8 @@ const About = () => {
   const targetRef = useRef(null);
 
   useEffect(() => {
+    const target = targetRef.current;
+
     const options = {
       rootMargin: "-130px",
       threshold: 0.5,
@@ -15,12 +17,12 @@ const About = () => {
     const observer = new IntersectionObserver(([entry]) => {
       setInView(entry.isIntersecting);
     }, options);
-    if (targetRef.current) {
-      observer.observe(targetRef.current);
+    if (target) {
+      observer.observe(target);
     }
     return () => {
-      if (targetRef.current) {
-        observer.unobserve(targetRef.current);
+      if (target) {
+        observer.unobserve(target);
       }
     };
   }, []);
@@ -33,7 +35,7 @@ const About = () => {
       <div className="max-w-[1240px] flex justify-center flex-col-reverse mx-10 md:grid grid-cols-3 gap-8">
         <div className="col-span-2">
           <p className="uppercase font-bold tracking-widest">
-            Cool, i've got you
+            Cool, i&apos;ve got you
             <span className="text-[#49ff49]"> intrigued </span>
           </p>
           <h1 className="pt-10 pb-2 uppercase text-3xl sm:text-4xl">
@@ -53,7 +55,7 @@ const About = () => {
           <p className="pt-2 pb-12">
             Why I went with Frontend and not Backend is because Frontend focuses
             on the visual aspects of a website and understanding the needs of
-            the end user which I find intriguing. I'm spending my free time to
+            the end user which I find intriguing. I&apos;m spending my free time to
             learn, build and design. My focus is to become an awesome frontend
             developer and having fun creating and delivering web applications.
           </p>
