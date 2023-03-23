@@ -26,7 +26,8 @@
     "react-icons": "^4.7.1",
     "react-is": "^16.8.0",
     "sharp": "^0.31.3",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.6",
+    "vercel": "^28.18.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
