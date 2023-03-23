@@ -54,7 +54,7 @@ const Main = () => {
           <h3 className="pt-10 sm:pt-10">Feel free to explore</h3>
         </div>
 
-        <div className="flex items-center justify-center w-full gap-8 relative top-[3.5rem] mb-10 sm:mb-14">
+        <div className="flex items-center justify-center w-full gap-8 relative top-[3.4rem] mb-10 sm:mb-14">
           <div className="rounded-full border-2 border-gray-400 p-3 cursor-pointer hover:scale-125 ease-in duration-200">
             <a
               href="https://www.linkedin.com/in/johnhansson90"
